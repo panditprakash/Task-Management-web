@@ -22,3 +22,7 @@ export const updateTask = (taskId, taskData) =>
  */
 export const deleteTask = (taskId) =>
   api.delete(`/tasks/${taskId}`);
+
+//filter a task 
+export const filteredTasks = (filters) =>
+  api.get("/tasks", { params: filters });
