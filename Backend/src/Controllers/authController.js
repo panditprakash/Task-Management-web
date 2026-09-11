@@ -3,8 +3,7 @@ import User from "../Models/User.js";
 
 import generateToken from "../utils/generateToken.js";
 
-//  * Register New User
-//  * Creates a new account after validating input.
+//  Register New User
 export const registerUser = async (request, response) => {
   try {
     const { name, email, password } = request.body;

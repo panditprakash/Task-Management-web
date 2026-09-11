@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dns from "dns";
 
-// querySrv ECONNREFUSED _mongodb._tcp.task.aoryosy.mongodb.net (This error fix code)
+// querySrv ECONNREFUSED _mongodb._tcp.task.aoryosy.mongodb.net (This error fix code) this error show in terminal
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const connectDB = async () => {
