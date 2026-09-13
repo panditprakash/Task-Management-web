@@ -38,5 +38,5 @@ A full-stack task management web application designed to help users organize, sc
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/Task-Manegment-web.git](https://github.com/your-username/Task-Manegment-web.git)
+git clone [https://github.com/panditprakash/Task-Management-web.git]
 cd Task-Manegment-web
