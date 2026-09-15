@@ -1,5 +1,4 @@
 import { Menu, Search, Bell } from "lucide-react";
-import ThemeToggle from "../ui/ThemeToggle";
 import { useAuth } from "../../context/AuthContext";
 
 /**

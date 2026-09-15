@@ -6,7 +6,7 @@ import Badge from "../ui/Badge";
  * Task Card Component
  * Displays a single task.
  */
-function TaskCard({ task, onEdit, onDelete }) {
+function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
   return (
     <div
       className="
@@ -15,9 +15,9 @@ function TaskCard({ task, onEdit, onDelete }) {
         p-4
         shadow-sm
         border border-slate-200
-        hover:shadow-md
-        transition-all
-        duration-200
+      transition-all
+  duration-300
+  hover:-translate-y-1
       "
     >
       <div className="flex justify-between items-start">
@@ -30,7 +30,7 @@ function TaskCard({ task, onEdit, onDelete }) {
           >
             <Pencil size={18} />
           </button>
- 
+
           <button
             onClick={() => onDelete(task)}
             className="text-slate-500 hover:text-red-500"

@@ -10,6 +10,7 @@ const connectDB = async () => {
 
     if (!mongoURI) {
       throw new Error("MONGO_URI is missing from environment variables!");
+      
     }
     const conn = await mongoose.connect(mongoURI);
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);

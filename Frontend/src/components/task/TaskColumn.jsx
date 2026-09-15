@@ -11,6 +11,7 @@ function TaskColumn({
   tasks,
   onEdit,
   onDelete,
+  onStatusChange,
 }) {
   return (
     <div className="bg-slate-100 rounded-2xl p-4">
@@ -34,6 +35,7 @@ function TaskColumn({
               task={task}
               onEdit={onEdit}
               onDelete={onDelete}
+              onStatusChange={onStatusChange}
             />
           ))
         )}
