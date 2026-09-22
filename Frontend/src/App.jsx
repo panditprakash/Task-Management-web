@@ -9,17 +9,26 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 const LoginPage = lazy(() => import("./pages/auth/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/auth/RegisterPage"));
 const DashboardPage = lazy(() => import("./pages/dashbord/DashboardPage"));
+const ChangePasswordPage = lazy(
+  () => import("./pages/profile/ChangePasswordPage"),
+);
 /**
  * Main Application Routes
  */
 function App() {
   return (
     <Routes>
-
       <Route path="/" element={<LoginPage />} />
 
       <Route path="/register" element={<RegisterPage />} />
-
+      <Route
+        path="/change-password"
+        element={
+          <ProtectedRoute>
+            <ChangePasswordPage />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/dashboard"
         element={

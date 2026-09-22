@@ -38,9 +38,6 @@
 
 // export default User;
 
-
-
-
 import mongoose from "mongoose";
 
 /**
@@ -71,10 +68,15 @@ const userSchema = new mongoose.Schema(
       required: true,
       minlength: 6,
     },
+    avatar: {
+      type: String,
+      default: "",
+    },
   },
+
   {
     timestamps: true,
-  }
+  },
 );
 
 const User = mongoose.model("User", userSchema);
