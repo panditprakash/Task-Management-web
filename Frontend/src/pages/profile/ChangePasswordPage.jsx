@@ -5,6 +5,7 @@ import DashboardLayout from "../../components/layout/DashboardLayout";
 import Card from "../../components/ui/Card";
 import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
+import PasswordStrengthMeter from "../../components/profile/PasswordStrengthMeter";
 
 import { changePassword } from "../../services/profileService";
 

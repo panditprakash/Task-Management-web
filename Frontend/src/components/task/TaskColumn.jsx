@@ -14,13 +14,13 @@ function TaskColumn({
   onStatusChange,
 }) {
   return (
-    <div className="bg-slate-100 rounded-2xl p-4">
+    <div className="rounded-2xl border border-slate-200/70 bg-slate-100/80 p-4">
       <div className="flex justify-between items-center mb-4">
         <h2 className={`font-bold ${color}`}>
           {title}
         </h2>
 
-        <span className="bg-white rounded-full px-3 py-1 text-sm">
+        <span className="bg-white rounded-full px-3 py-1 text-sm font-semibold text-slate-500 shadow-sm">
           {tasks.length}
         </span>
       </div>

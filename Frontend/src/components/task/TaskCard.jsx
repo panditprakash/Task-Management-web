@@ -14,10 +14,10 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
         rounded-2xl
         p-4
         shadow-sm
-        border border-slate-200
+        border border-slate-200/80
       transition-all
   duration-300
-  hover:-translate-y-1
+  hover:-translate-y-1 hover:shadow-md
       "
     >
       <div className="flex justify-between items-start">
@@ -26,21 +26,21 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
         <div className="flex gap-2">
           <button
             onClick={() => onEdit(task)}
-            className="text-slate-500 hover:text-indigo-600"
+            aria-label="Edit task" className="rounded-lg p-1 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600"
           >
             <Pencil size={18} />
           </button>
 
           <button
             onClick={() => onDelete(task)}
-            className="text-slate-500 hover:text-red-500"
+            aria-label="Delete task" className="rounded-lg p-1 text-slate-400 hover:bg-rose-50 hover:text-rose-500"
           >
             <Trash2 size={18} />
           </button>
         </div>
       </div>
 
-      <h3 className="font-semibold text-slate-900 mt-4">{task.title}</h3>
+      <h3 className="font-semibold text-slate-900 mt-4 line-clamp-2">{task.title}</h3>
 
       <p className="text-sm text-slate-500 mt-2 line-clamp-3">
         {task.description || "No description"}
@@ -59,9 +59,7 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
         className="
     mt-4
     w-full
-    rounded-lg
-    border
-    p-2
+    rounded-xl border border-slate-200 bg-slate-50 p-2 text-sm text-slate-600 outline-none focus:border-indigo-400
   "
       >
         <option>To Do</option>

@@ -23,17 +23,16 @@ function ProfilePage() {
   });
 
   useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        const response = await getProfile();
+        setUser(response.data.user);
+      } catch {
+        toast.error("Failed to load profile.");
+      }
+    };
     loadProfile();
   }, []);
-
-  const loadProfile = async () => {
-    try {
-      const response = await getProfile();
-      setUser(response.data.user);
-    } catch {
-      toast.error("Failed to load profile.");
-    }
-  };
 
   const handleChange = (event) => {
     setUser({

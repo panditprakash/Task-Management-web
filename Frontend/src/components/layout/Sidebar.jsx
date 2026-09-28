@@ -41,9 +41,8 @@ function Sidebar({ isOpen, closeSidebar }) {
     left-0
     h-screen
     w-72
-    bg-white
-    border-r border-slate-200
-    shadow-lg
+    bg-slate-950 text-slate-300
+    border-r border-slate-800
     z-40
     transform
     transition-transform duration-300
@@ -55,9 +54,9 @@ function Sidebar({ isOpen, closeSidebar }) {
         `}
       >
         <div className="p-6">
-          <h1 className="text-3xl font-bold text-indigo-600">TaskFlow</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-white">Task<span className="text-indigo-400">Flow</span></h1>
 
-          <p className="text-slate-500 text-sm mt-1">
+          <p className="text-slate-400 text-sm mt-1">
             Productivity Made Simple
           </p>
         </div>
@@ -74,9 +73,9 @@ function Sidebar({ isOpen, closeSidebar }) {
                 px-4
                 py-3
                 rounded-xl
-                text-slate-700
-                hover:bg-indigo-50
-                hover:text-indigo-600
+                text-slate-300
+                hover:bg-white/10
+                hover:text-white
                 transition-all
               "
             >
@@ -86,7 +85,7 @@ function Sidebar({ isOpen, closeSidebar }) {
             </button>
           ))}
         </nav>
-        <div className="mt-auto p-4 border-t border-slate-200">
+        <div className="mt-auto p-4 border-t border-slate-800">
           <button
             onClick={logout}
             className="
@@ -97,8 +96,8 @@ function Sidebar({ isOpen, closeSidebar }) {
               px-4
               py-3
               rounded-xl
-              text-red-500
-              hover:bg-red-50
+              text-rose-300
+              hover:bg-rose-400/10
             "
           >
             <LogOut size={22} />

@@ -34,11 +34,7 @@ import {
 } from "../Controllers/profileController.js";
 import upload from "../middleware/uploadMiddleware.js";
 
-import {
-  getProfile,
-  updateProfile,
-  uploadAvatar,
-} from "../Controllers/profileController.js";
+
 
 const router = express.Router();
 

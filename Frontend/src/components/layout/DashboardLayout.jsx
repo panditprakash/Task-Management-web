@@ -60,7 +60,7 @@ function DashboardLayout({ children, openTaskModal }) {
   }, [sidebarOpen]);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#f7f8fc] text-slate-900">
       {/* Fixed Sidebar */}
       <Sidebar
         isOpen={sidebarOpen}
@@ -74,7 +74,7 @@ function DashboardLayout({ children, openTaskModal }) {
           openTaskModal={openTaskModal}
         />
 
-        <main className="p-6">{children}</main>
+        <main className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
     </div>
   );

@@ -26,19 +26,19 @@ function StatsCards({ tasks }) {
       label: "To Do",
       value: todo,
       icon: Circle,
-      color: "text-sky-500",
+      color: "bg-sky-50 text-sky-600",
     },
     {
       label: "In Progress",
       value: progress,
       icon: Clock3,
-      color: "text-amber-500",
+      color: "bg-amber-50 text-amber-600",
     },
     {
       label: "Completed",
       value: completed,
       icon: CheckCircle2,
-      color: "text-green-500",
+      color: "bg-emerald-50 text-emerald-600",
     },
   ];
 
@@ -52,22 +52,19 @@ function StatsCards({ tasks }) {
       "
     >
       {stats.map((stat) => (
-        <Card key={stat.label}>
+        <Card key={stat.label} className="group border-slate-100 p-5 shadow-sm hover:-translate-y-0.5 hover:shadow-md">
           <div className="flex justify-between items-center">
             <div>
-              <p className="text-slate-500">
+              <p className="text-sm font-medium text-slate-500">
                 {stat.label}
               </p>
 
-              <h3 className="text-3xl font-bold mt-2">
+              <h3 className="text-3xl font-bold tracking-tight mt-1">
                 {stat.value}
               </h3>
             </div>
 
-            <stat.icon
-              size={34}
-              className={stat.color}
-            />
+            <span className={`grid h-12 w-12 place-items-center rounded-2xl ${stat.color}`}><stat.icon size={23} /></span>
           </div>
         </Card>
       ))}

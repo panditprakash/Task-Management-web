@@ -108,7 +108,7 @@ function TaskFormModal({
               name="priority"
               value={formData.priority}
               onChange={handleChange}
-              className="w-full mt-2 rounded-xl border border-slate-300 p-3"
+              className="w-full mt-2 rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100"
             >
               <option>Low</option>
               <option>Medium</option>
