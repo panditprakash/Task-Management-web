@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import DashboardLayout from "../../components/layout/DashboardLayout";
 import StatsCards from "../../components/dashboard/StatsCards";
 import TaskBoard from "../../components/task/TaskBoard";
-// import { getTasks } from "../../services/taskService";
 import toast from "react-hot-toast";
 import ProgressCard from "../../components/task/ProgressCard"
 import TaskFilter from "../../components/task/TaskFilterBar"
@@ -89,11 +88,6 @@ function DashboardPage() {
       toast.error("Failed to update task.");
     }
   };
-
-  // // Placeholder functions for now
-  // const handleEdit = (task) => {
-  //   console.log("Edit", task);
-  // };
 
   const handleDelete = (task) => {
     setDeletingTask(task);

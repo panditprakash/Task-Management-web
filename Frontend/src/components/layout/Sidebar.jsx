@@ -1,4 +1,5 @@
 import { LayoutDashboard, CheckSquare, Settings, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
 
@@ -8,19 +9,23 @@ import { useAuth } from "../../context/AuthContext";
  */
 function Sidebar({ isOpen, closeSidebar }) {
   const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const menuItems = [
     {
       icon: LayoutDashboard,
       label: "Dashboard",
+      path: "/dashboard",
     },
     {
       icon: CheckSquare,
       label: "My Tasks",
+      path: "/my-tasks",
     },
     {
       icon: Settings,
       label: "Settings",
+      path: "/profile",
     },
   ];
 
@@ -65,6 +70,10 @@ function Sidebar({ isOpen, closeSidebar }) {
           {menuItems.map((item) => (
             <button
               key={item.label}
+              onClick={() => {
+                navigate(item.path);
+                closeSidebar();
+              }}
               className="
                 w-full
                 flex

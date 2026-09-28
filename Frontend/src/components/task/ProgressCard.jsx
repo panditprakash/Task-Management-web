@@ -14,7 +14,7 @@ function ProgressCard({ tasks }) {
       : Math.round((completed / tasks.length) * 100);
 
   return (
-    <Card className="border-indigo-100 bg-gradient-to-r from-white to-indigo-50/70">
+    <Card className="border-indigo-100 bg-gradient-to-r mt-5 from-white to-indigo-50/70">
       <div className="flex items-start justify-between"><div><h3 className="font-bold text-lg">
         Task Progress
       </h3>

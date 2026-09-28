@@ -14,7 +14,7 @@ function TaskFilter({
   setSort,
 }) {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-3 grid md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-3 shadow-sm">
+    <div className="bg-white rounded-2xl border border-slate-200 p-3  mt-5 grid md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-3 shadow-sm">
       <label className="relative"><Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" /><input aria-label="Search tasks" placeholder="Search tasks..." name="search" value={search} onChange={(event) => setSearch(event.target.value)} className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm outline-none focus:border-indigo-400 focus:bg-white" /></label>
 
       <select

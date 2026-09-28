@@ -23,21 +23,27 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
       <div className="flex justify-between items-start">
         <Badge type={task.priority} />
 
-        <div className="flex gap-2">
-          <button
-            onClick={() => onEdit(task)}
-            aria-label="Edit task" className="rounded-lg p-1 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600"
-          >
-            <Pencil size={18} />
-          </button>
+        {(onEdit || onDelete) && (
+          <div className="flex gap-2">
+            {onEdit && (
+              <button
+                onClick={() => onEdit(task)}
+                aria-label="Edit task" className="rounded-lg p-1 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600"
+              >
+                <Pencil size={18} />
+              </button>
+            )}
 
-          <button
-            onClick={() => onDelete(task)}
-            aria-label="Delete task" className="rounded-lg p-1 text-slate-400 hover:bg-rose-50 hover:text-rose-500"
-          >
-            <Trash2 size={18} />
-          </button>
-        </div>
+            {onDelete && (
+              <button
+                onClick={() => onDelete(task)}
+                aria-label="Delete task" className="rounded-lg p-1 text-slate-400 hover:bg-rose-50 hover:text-rose-500"
+              >
+                <Trash2 size={18} />
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       <h3 className="font-semibold text-slate-900 mt-4 line-clamp-2">{task.title}</h3>
@@ -55,7 +61,7 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
       )}
       <select
         value={task.status}
-        onChange={(event) => onStatusChange(task, event.target.value)}
+        onChange={(event) => onStatusChange?.(task, event.target.value)}
         className="
     mt-4
     w-full

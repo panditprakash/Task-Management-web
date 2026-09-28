@@ -1,29 +1,3 @@
-// import express from "express";
-
-// import protect from "../middleware/authMiddleware.js";
-// import upload from "../middleware/uploadMiddleware.js";
-
-// import {
-//   getProfile,
-//   updateProfile,
-//   uploadAvatar,
-// } from "../Controllers/profileController.js";
-
-// const router = express.Router();
-
-// router.get("/", protect, getProfile);
-
-// router.put("/", upload, updateProfile);
-
-// router.post(
-//   "/avatar",
-//   protect,
-//   upload.single("avatar"),
-//   uploadAvatar
-// );
-
-// export default router;
-
 import express from "express";
 import protect from "../middleware/authMiddleware.js";
 import {
