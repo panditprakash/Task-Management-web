@@ -11,6 +11,12 @@ function Sidebar({ isOpen, closeSidebar }) {
   const { logout } = useAuth();
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    logout();
+    closeSidebar();
+    navigate("/", { replace: true });
+  };
+
   const menuItems = [
     {
       icon: LayoutDashboard,
@@ -96,7 +102,7 @@ function Sidebar({ isOpen, closeSidebar }) {
         </nav>
         <div className="mt-auto p-4 border-t border-slate-800">
           <button
-            onClick={logout}
+            onClick={handleLogout}
             className="
               w-full
               flex
