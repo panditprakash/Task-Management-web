@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, Bell, Plus } from "lucide-react";
+import { Menu, Plus } from "lucide-react";
 
 import { useAuth } from "../../context/AuthContext";
 import ProfileDropdown from "./ProfileDropdown";
@@ -40,8 +40,8 @@ function Header({ openSidebar, openTaskModal }) {
           </button>
 
           <div>
-            <p className="text-sm text-slate-500">Here’s your workspace</p>
-            <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Good to see you, {user?.name?.split(" ")[0] || "there"}</h2>
+            <p className="text-sm font-bold text-indigo-500">Here’s your workspace </p>
+            <h2 className="text-xl font-bold tracking-tight sm:text-2xl">Good to see you, <span className="text-2xl text-red-700" >{user?.name?.split(" ")[0] || "there"}</span></h2>
           </div>
         </div>
 
@@ -56,13 +56,13 @@ function Header({ openSidebar, openTaskModal }) {
             </button>
           )}
 
-          <button
+          {/* <button
             className="
               hidden sm:block p-2.5 rounded-xl text-slate-500 hover:bg-slate-100
             "
           >
             <Bell size={22} />
-          </button>
+          </button> */}
 
           {/* Profile Avatar */}
           <div className="relative">

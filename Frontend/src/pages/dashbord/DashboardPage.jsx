@@ -140,7 +140,7 @@ function DashboardPage() {
       >
         <StatsCards tasks={filteredTasks} />
 
-        <ProgressCard tasks={filteredTasks} />
+        <ProgressCard tasks={tasks} />
         <TaskFilter
           search={search}
           setSearch={setSearch}
