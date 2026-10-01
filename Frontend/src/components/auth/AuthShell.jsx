@@ -7,8 +7,8 @@ function AuthShell({
   quote = "A calmer way to get things done.",
 }) {
   return (
-    <main className="min-h-screen bg-slate-50 p-4 sm:p-6 lg:p-8">
-      <div className="mx-auto grid min-h-[calc(100vh-2rem)] max-w-6xl overflow-hidden rounded-[2rem] bg-white shadow-2xl shadow-indigo-950/10 lg:grid-cols-[1.05fr_.95fr]">
+    <main className="min-h-dvh bg-slate-50 sm:p-6 lg:p-8">
+      <div className="mx-auto grid min-h-dvh max-w-6xl overflow-hidden bg-white sm:min-h-[calc(100dvh-3rem)] sm:rounded-[2rem] sm:shadow-2xl sm:shadow-indigo-950/10 lg:grid-cols-[1.05fr_.95fr] lg:min-h-[calc(100dvh-4rem)]">
         <section className="relative hidden overflow-hidden bg-slate-950 p-10 text-white lg:flex lg:flex-col">
           <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-fuchsia-500/30 blur-3xl" />
           <div className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-indigo-500/40 blur-3xl" />
@@ -44,21 +44,21 @@ function AuthShell({
           </div>
           <p className="relative text-sm italic text-slate-400">“{quote}”</p>
         </section>
-        <section className="flex items-center justify-center p-6 sm:p-10 lg:p-14">
+        <section className="flex min-w-0 items-center justify-center px-5 py-8 sm:p-10 lg:p-14">
           <div className="w-full max-w-md">
-            <div className="mb-10 flex items-center gap-3 text-lg font-bold text-slate-900 lg:hidden">
+            <div className="mb-8 flex items-center gap-3 text-lg font-bold text-slate-900 sm:mb-10 lg:hidden">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-600 text-white">
                 <LayoutDashboard size={21} />
               </span>
               TaskFlow
             </div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-indigo-600">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600 sm:mb-3 sm:text-sm">
               Welcome to TaskFlow
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
               {title}
             </h2>
-            <p className="mt-3 text-slate-500">{subtitle}</p>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-500 sm:text-base">{subtitle}</p>
             {children}
           </div>
         </section>

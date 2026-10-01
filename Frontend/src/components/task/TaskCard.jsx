@@ -9,22 +9,13 @@ import Badge from "../ui/Badge";
 function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
   return (
     <div
-      className="
-        bg-white
-        rounded-2xl
-        p-4
-        shadow-sm
-        border border-slate-200/80
-      transition-all
-  duration-300
-  hover:-translate-y-1 hover:shadow-md
-      "
+      className="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition-all duration-300 sm:p-4 sm:hover:-translate-y-1 sm:hover:shadow-md"
     >
-      <div className="flex justify-between items-start">
+      <div className="flex items-start justify-between gap-3">
         <Badge type={task.priority} />
 
         {(onEdit || onDelete) && (
-          <div className="flex gap-2">
+          <div className="flex shrink-0 gap-2">
             {onEdit && (
               <button
                 onClick={() => onEdit(task)}
@@ -46,27 +37,23 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
         )}
       </div>
 
-      <h3 className="font-semibold text-slate-900 mt-4 line-clamp-2">{task.title}</h3>
+      <h3 className="mt-4 break-words font-semibold text-slate-900 line-clamp-2">{task.title}</h3>
 
-      <p className="text-sm text-slate-500 mt-2 line-clamp-3">
+      <p className="mt-2 break-words text-sm text-slate-500 line-clamp-3">
         {task.description || "No description"}
       </p>
 
       {task.dueDate && (
-        <div className="flex items-center gap-2 mt-4 text-xs text-slate-500">
-          <CalendarDays size={16} />
+        <div className="mt-4 flex items-center gap-2 text-xs text-slate-500">
+          <CalendarDays className="shrink-0" size={16} />
 
-          <span>{new Date(task.dueDate).toLocaleDateString()}</span>
+          <span className="min-w-0 break-words">{new Date(task.dueDate).toLocaleDateString()}</span>
         </div>
       )}
       <select
         value={task.status}
         onChange={(event) => onStatusChange?.(task, event.target.value)}
-        className="
-    mt-4
-    w-full
-    rounded-xl border border-slate-200 bg-slate-50 p-2 text-sm text-slate-600 outline-none focus:border-indigo-400
-  "
+        className="mt-4 w-full min-w-0 rounded-xl border border-slate-200 bg-slate-50 p-2 text-sm text-slate-600 outline-none focus:border-indigo-400"
       >
         <option>To Do</option>
         <option>In Progress</option>

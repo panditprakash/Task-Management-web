@@ -26,16 +26,21 @@ function ProgressCard({ tasks }) {
   };
 
   return (
-    <Card className="border-indigo-200 bg-gradient-to-r mt-5 from-white to-indigo-50/70">
-      <div className="flex items-start justify-between"><div><h3 className="font-bold text-lg">
-        Task Progress
-      </h3>
+    <Card className="mt-5 border-indigo-200 bg-gradient-to-r from-white to-indigo-50/70 p-4 sm:p-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h3 className="text-lg font-bold">Task Progress</h3>
 
-      <p className="text-slate-500 mt-1">
-        {completed} of {taskList.length} completed
-      </p></div><span className="rounded-xl bg-indigo-600 px-3 py-1.5 text-sm font-bold text-white">{percentage}%</span></div>
+          <p className="mt-1 text-slate-500">
+            {completed} of {taskList.length} completed
+          </p>
+        </div>
+        <span className="self-start rounded-xl bg-indigo-600 px-3 py-1.5 text-sm font-bold text-white sm:self-auto">
+          {percentage}%
+        </span>
+      </div>
 
-      <div className="mt-4 h-3 bg-slate-200 rounded-full overflow-hidden">
+      <div className="mt-4 h-3 overflow-hidden rounded-full bg-slate-200">
         <div
           aria-label={`${percentage}% of tasks completed`}
           aria-valuemax={100}
@@ -48,7 +53,9 @@ function ProgressCard({ tasks }) {
         />
       </div>
 
-      <p className="mt-3 text-sm font-medium text-slate-600">Keep going — every completed task counts.</p>
+      <p className="mt-3 text-sm font-medium text-slate-600">
+        Keep going — every completed task counts.
+      </p>
     </Card>
   );
 }

@@ -14,18 +14,18 @@ function TaskColumn({
   onStatusChange,
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200/70 bg-slate-100/80 p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className={`font-bold ${color}`}>
+    <div className="min-w-0 rounded-2xl border border-slate-200/70 bg-slate-100/80 p-3 sm:p-4">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <h2 className={`min-w-0 break-words font-bold ${color}`}>
           {title}
         </h2>
 
-        <span className="bg-white rounded-full px-3 py-1 text-sm font-semibold text-slate-500 shadow-sm">
+        <span className="shrink-0 rounded-full bg-white px-3 py-1 text-sm font-semibold text-slate-500 shadow-sm">
           {tasks.length}
         </span>
       </div>
 
-      <div className="space-y-4 min-h-[300px]">
+      <div className="min-h-48 space-y-3 sm:min-h-[18.75rem] sm:space-y-4">
         {tasks.length === 0 ? (
           <EmptyState />
         ) : (

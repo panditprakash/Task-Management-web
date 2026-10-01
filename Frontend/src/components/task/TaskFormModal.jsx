@@ -93,13 +93,13 @@ function TaskFormModal({
             value={formData.description}
             onChange={handleChange}
             rows={4}
-            className="w-full mt-2 rounded-xl border border-slate-300 p-3 focus:ring-2 focus:ring-indigo-500 outline-none"
+            className="mt-2 w-full min-w-0 rounded-xl border border-slate-300 p-3 outline-none focus:ring-2 focus:ring-indigo-500"
             placeholder="Task description"
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="min-w-0">
             <label className="text-sm font-medium text-slate-700">
               Priority
             </label>
@@ -108,7 +108,7 @@ function TaskFormModal({
               name="priority"
               value={formData.priority}
               onChange={handleChange}
-              className="w-full mt-2 rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100"
+              className="mt-2 w-full min-w-0 rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100"
             >
               <option>Low</option>
               <option>Medium</option>
@@ -125,12 +125,12 @@ function TaskFormModal({
           />
         </div>
 
-        <div className="flex justify-end gap-3 pt-2">
-          <Button variant="outline" onClick={onClose}>
+        <div className="flex flex-col-reverse gap-3 pt-2 sm:flex-row sm:justify-end">
+          <Button className="w-full sm:w-auto" variant="outline" onClick={onClose}>
             Cancel
           </Button>
 
-          <Button type="submit">
+          <Button className="w-full sm:w-auto" type="submit">
             {initialData ? "Save Changes" : "Create Task"}
           </Button>
         </div>
