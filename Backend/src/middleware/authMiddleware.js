@@ -16,10 +16,10 @@ const protect = async (request, response, next) => {
         message: "Access denied. Token missing.",
       });
     }
-    // Remove "Bearer "
+    // Remove "Bearer " 
     const token = authorizationHeader.split(" ")[1];
 
-    // Verify token
+    // Verify token 
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
     // Find user
