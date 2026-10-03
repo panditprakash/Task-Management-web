@@ -70,22 +70,6 @@ import { CalendarDays, Pencil, Trash2, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Badge from "../ui/Badge";
 
-/**
- * Task Card Component
- *
- * Displays a single task with:
- * - Priority
- * - Edit / Delete actions
- * - Title
- * - Description
- * - Due date
- * - Custom responsive status dropdown
- *
- * Mobile-first design:
- * - Prevents horizontal overflow
- * - Prevents native select popup from going outside screen
- * - Keeps buttons and content inside the card
- */
 function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
   const [isStatusOpen, setIsStatusOpen] = useState(false);
 
@@ -322,7 +306,7 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
               mt-2
               w-full
               min-w-0
-              overflow-hidden
+              // overflow-hidden
               rounded-xl
               border
               border-slate-700
