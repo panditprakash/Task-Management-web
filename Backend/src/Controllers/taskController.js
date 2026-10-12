@@ -33,7 +33,8 @@ export const createTask = async (request, response) => {
       message: error.message,
     });
   }
-};/**
+};
+/**
  * Get every task belonging to the logged-in user.
  */
 export const getTasks = async (request, response) => {
@@ -43,7 +44,7 @@ export const getTasks = async (request, response) => {
     }).sort({
       createdAt: -1,
     });
-
+   
     response.json({
       success: true,
       count: tasks.length,

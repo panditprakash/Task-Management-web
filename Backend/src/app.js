@@ -17,7 +17,7 @@ const app = express();
  */
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
@@ -38,6 +38,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/auth/reset-password/:token",authRoutes);
+app.use("/api/auth/forgot-password",authRoutes)
 /**
  *
  * This route confirms that the server is running.

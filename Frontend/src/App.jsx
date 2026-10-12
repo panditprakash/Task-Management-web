@@ -10,9 +10,8 @@ const RegisterPage = lazy(() => import("./pages/auth/RegisterPage"));
 const DashboardPage = lazy(() => import("./pages/dashbord/DashboardPage"));
 const MyTasksPage = lazy(() => import("./pages/tasks/MyTasksPage"));
 const ProfilePage = lazy(() => import("./pages/profile/ProfilePage"));
-const ChangePasswordPage = lazy(() =>
-  import("./pages/profile/ChangePasswordPage")
-);
+
+
 
 /**
  * Main Application Routes
@@ -52,14 +51,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/change-password"
-          element={
-            <ProtectedRoute>
-              <ChangePasswordPage />
-            </ProtectedRoute>
-          }
-        />
+      
       </Routes>
     </Suspense>
   );

@@ -1,7 +1,6 @@
 // import mongoose from "mongoose";
 // import dns from "dns";
 
-
 // // querySrv ECONNREFUSED _mongodb._tcp.task.aoryosy.mongodb.net (This error fix code) this error show in terminal
 // dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
@@ -18,7 +17,6 @@
 
 // export default connectDB;
 
-
 import mongoose from "mongoose";
 import dns from "dns";
 
@@ -31,7 +29,6 @@ const connectDB = async () => {
 
     if (!mongoURI) {
       throw new Error("MONGO_URI is missing from environment variables!");
-      
     }
     const conn = await mongoose.connect(mongoURI);
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
@@ -42,5 +39,3 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-
-

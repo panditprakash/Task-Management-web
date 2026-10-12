@@ -19,14 +19,14 @@ function ProfileDropdown() {
         <User size={18} />
         Profile
       </Link>
-
+{/* 
       <Link
         to="/change-password"
         className="flex items-center gap-3 w-full px-3 py-2 rounded-lg hover:bg-slate-100"
       >
         <Settings size={18} />
         Change Password
-      </Link>
+      </Link> */}
 
       <button
         onClick={logout}

@@ -1,7 +1,7 @@
+// import "dotenv/config";
 import "dotenv/config";
 import app from "./app.js";
 import connectDatabase from "./Config/db.js";
-
 
 /**
  * Start the application.
@@ -14,9 +14,8 @@ const startServer = async () => {
   await connectDatabase();
 
   app.listen(port, () => {
-    console.log(
-      `Server Running: http://localhost:${port}`
-    );
+    console.log(`Server Running: http://localhost:${port}`);
+    
   });
 };
 
