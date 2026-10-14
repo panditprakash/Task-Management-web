@@ -2,7 +2,7 @@ import Card from "../ui/Card";
 import {
   CheckCircle2,
   Clock3,
-  Circle,
+  Menu,
 } from "lucide-react";
 
 /**
@@ -25,7 +25,7 @@ function StatsCards({ tasks }) {
     {
       label: "To Do",
       value: todo,
-      icon: Circle,
+      icon: Menu,
       color: "bg-sky-50 text-sky-600",
     },
     {
