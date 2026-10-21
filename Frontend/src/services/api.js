@@ -5,7 +5,11 @@ import axios from "axios";
  * Every API request uses this configuration.
  */
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL:
+  import.meta.env.VITE_API_URL || "http://http://localhost:5173/api",
+  headers:{
+    "Content-Type": "application/json",
+  }
 });
 
 /**
