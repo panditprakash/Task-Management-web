@@ -18,8 +18,8 @@ const app = express();
 
 // Allow local development and deployed frontend
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://task-management-web-amber.vercel.app",
+  process.env.FRONTEND_URL,
+  process.env.Live_LINK,
 ];
 
 app.use(
