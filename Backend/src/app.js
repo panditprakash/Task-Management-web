@@ -15,12 +15,30 @@ const app = express();
  * This allows the React frontend
  * to communicate with the backend.
  */
+
+// Allow local development and deployed frontend
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://task-management-web-amber.vercel.app",
+];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+
+
+
+// app.use(
+//   cors({
+//     origin: process.env.FRONTEND_URL,
+//     credentials: true,
+//   })
+// );
 
 // Parse incoming JSON requests
 app.use(express.json());
@@ -39,7 +57,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/auth/reset-password/:token",authRoutes);
-app.use("/api/auth/forgot-password",authRoutes)
+// app.use("/api/auth/forgot-password",authRoutes)
 /**
  *
  * This route confirms that the server is running.
