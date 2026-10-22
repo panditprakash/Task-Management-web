@@ -5,11 +5,7 @@ import axios from "axios";
  * Every API request uses this configuration.
  */
 const api = axios.create({
-  baseURL:
-  import.meta.env.VITE_API_URL || "http://http://localhost:5173/api",
-  headers:{
-    "Content-Type": "application/json",
-  }
+  baseURL: "https://task-management-web-zojl.onrender.com/api",
 });
 
 /**
