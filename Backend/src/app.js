@@ -1,5 +1,5 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 import cookieParser from "cookie-parser";
 import "dotenv/config";
 import profileRoutes from "./routes/profileRoutes.js";
@@ -10,28 +10,33 @@ import taskRoutes from "./routes/taskRoutes.js";
 // Create Express application
 const app = express();
 
-/**             
+/**
  * Enable Cross-Origin Resource Sharing.
  * This allows the React frontend
  * to communicate with the backend.
  */
 
 // Allow local development and deployed frontend
-const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  process.env.Live_LINK,
-];
+const allowedOrigins = [process.env.Live_LINK, process.env.FRONTEND_URL];
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, or Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Blocked by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+  }),
 );
 
-
-
+// Explicitly handle preflight requests across all routes
+app.options("*", cors());
 
 // app.use(
 //   cors({
@@ -56,7 +61,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/profile", profileRoutes);
-app.use("/api/auth/reset-password/:token",authRoutes);
+app.use("/api/auth/reset-password/:token", authRoutes);
 // app.use("/api/auth/forgot-password",authRoutes)
 /**
  *
