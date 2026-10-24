@@ -10,11 +10,7 @@ import taskRoutes from "./routes/taskRoutes.js";
 // Create Express application
 const app = express();
 
-/**
- * Enable Cross-Origin Resource Sharing.
- * This allows the React frontend
- * to communicate with the backend.
- */
+
 
 // Allow local development and deployed frontend
 const allowedOrigins = [process.env.Live_LINK, process.env.FRONTEND_URL];
@@ -36,14 +32,9 @@ app.use(
 );
 
 // Explicitly handle preflight requests across all routes
-app.options("*", cors());
+// app.options("*", cors());
 
-// app.use(
-//   cors({
-//     origin: process.env.FRONTEND_URL,
-//     credentials: true,
-//   })
-// );
+
 
 // Parse incoming JSON requests
 app.use(express.json());
