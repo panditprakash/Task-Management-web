@@ -56,9 +56,11 @@ function LoginPage() {
       // Support different API response structures.
       const resData = response.data?.data || response.data;
 
-      if (login && resData?.token) {
-        login(resData.user, resData.token);
+      if (!resData?.success || !resData?.token || !resData?.user) {
+        throw new Error("The server returned an invalid login response.");
       }
+
+      login(resData.user, resData.token);
 
       toast.success("Welcome back to TaskFlow!");
 

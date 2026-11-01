@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
       if (!token) return;
 
       try {
-        const response = await api.get("/user/profile");
+        const response = await api.get("/api/user/profile");
 
         setUser(response.data.user);
       } catch {

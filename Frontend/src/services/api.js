@@ -4,8 +4,12 @@ import axios from "axios";
  * Axios instance
  * Every API request uses this configuration.
  */
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
+
 const api = axios.create({
-  baseURL: "https://task-management-web-zojl.onrender.com/api",
+  // Use the deployed API in production and keep a sensible local fallback.
+  baseURL: (configuredApiUrl || "http://localhost:5000").replace(/\/$/, ""),
+  timeout: 15000,
 });
 
 /**

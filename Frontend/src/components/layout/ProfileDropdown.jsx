@@ -49,12 +49,12 @@
 
 // export default ProfileDropdown;
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { User } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
 function ProfileDropdown() {
-  const { user} = useAuth();
+  const { user } = useAuth();
 
 
   return (
