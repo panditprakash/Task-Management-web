@@ -81,17 +81,23 @@ import taskRoutes from "./routes/taskRoutes.js";
 
 const app = express();
 
-// Allowed frontend origins
+// Accept local development plus every explicitly configured frontend URL.
+// CORS_ORIGIN can contain a comma-separated list for preview deployments.
 const allowedOrigins = [
   "http://localhost:5173",
   process.env.FRONTEND_URL,
   process.env.LIVE_LINK,
-].filter(Boolean);
+  ...((process.env.CORS_ORIGIN || "").split(",")),
+]
+  .map((origin) => origin?.trim().replace(/\/$/, ""))
+  .filter(Boolean);
 
 // CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    const normalizedOrigin = origin?.replace(/\/$/, "");
+
+    if (!normalizedOrigin || allowedOrigins.includes(normalizedOrigin)) {
       return callback(null, true);
     }
 
@@ -130,6 +136,25 @@ app.get("/", (req, res) => {
     success: true,
     message: "TaskFlow Backend is Running Successfully",
   });
+});
+
+// Return a useful JSON response for CORS and malformed-request errors.
+app.use((error, req, res, next) => {
+  if (error.message === "Not allowed by CORS") {
+    return res.status(403).json({
+      success: false,
+      message: "This frontend origin is not allowed to access the API.",
+    });
+  }
+
+  if (error instanceof SyntaxError && "body" in error) {
+    return res.status(400).json({
+      success: false,
+      message: "Request body must be valid JSON.",
+    });
+  }
+
+  return next(error);
 });
 
 export default app;

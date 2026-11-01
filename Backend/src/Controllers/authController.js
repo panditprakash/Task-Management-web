@@ -220,14 +220,30 @@ export const registerUser = async (request, response) => {
   try {
     const { name, email, password } = request.body;
 
-    if (!name || !email || !password) {
+    const normalizedName = name?.trim();
+    const normalizedEmail = email?.trim().toLowerCase();
+
+    if (!normalizedName || !normalizedEmail || !password) {
       return response.status(400).json({
         success: false,
         message: "All fields are required.",
       });
     }
 
-    const normalizedEmail = email.trim().toLowerCase();
+    if (!/^\S+@\S+\.\S+$/.test(normalizedEmail)) {
+      return response.status(400).json({
+        success: false,
+        message: "Please provide a valid email address.",
+      });
+    }
+
+    if (password.length < 6) {
+      return response.status(400).json({
+        success: false,
+        message: "Password must be at least 6 characters long.",
+      });
+    }
+
     const existingUser = await User.findOne({
       email: normalizedEmail,
     });
@@ -242,7 +258,7 @@ export const registerUser = async (request, response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await User.create({
-      name: name.trim(),
+      name: normalizedName,
       email: normalizedEmail,
       password: hashedPassword,
     });
@@ -262,6 +278,13 @@ export const registerUser = async (request, response) => {
   } catch (error) {
     console.error("Register error:", error);
 
+    if (error?.code === 11000) {
+      return response.status(409).json({
+        success: false,
+        message: "Email already registered.",
+      });
+    }
+
     return response.status(500).json({
       success: false,
       message: "Unable to register user.",
@@ -274,14 +297,14 @@ export const loginUser = async (request, response) => {
   try {
     const { email, password } = request.body;
 
-    if (!email || !password) {
+    const normalizedEmail = email?.trim().toLowerCase();
+
+    if (!normalizedEmail || !password) {
       return response.status(400).json({
         success: false,
         message: "Email and password are required.",
       });
     }
-
-    const normalizedEmail = email.trim().toLowerCase();
 
     const user = await User.findOne({
       email: normalizedEmail,
