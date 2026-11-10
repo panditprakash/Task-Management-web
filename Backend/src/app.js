@@ -18,7 +18,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   process.env.FRONTEND_URL,
-  process.env.LIVE_LINK,
+  // process.env.LIVE_LINK,
   ...((process.env.CORS_ORIGIN || "").split(",")),
 ]
   .map((origin) => origin?.trim().replace(/\/$/, ""))
