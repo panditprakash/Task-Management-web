@@ -8,7 +8,7 @@ const configuredApiUrl = import.meta.env.VITE_API_URL?.trim();
 
 const api = axios.create({
   // Use the deployed API in production and keep a sensible local fallback.
-  baseURL: (configuredApiUrl || "http://localhost:5000").replace(/\/$/, ""),
+  baseURL: (configuredApiUrl || "https://task-management-web-cdn6.onrender.com").replace(/\/$/, ""),
   timeout: 15000,
 });
 
