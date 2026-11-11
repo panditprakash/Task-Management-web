@@ -3,6 +3,7 @@ dns.setServers(["8.8.8.8", "8.8.4.4"]);
 import "dotenv/config";
 import app from "./app.js";
 import connectDatabase from "./Config/db.js";
+import cors from "cors";
 
 const PORT = process.env.PORT || 5000;
 
