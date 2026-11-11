@@ -166,6 +166,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // 5. Health check route
+
 app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
